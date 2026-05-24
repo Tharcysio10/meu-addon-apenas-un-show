@@ -1,12 +1,13 @@
 const { addonBuilder, serveHTTP } = require("stremio-addon-sdk");
 
 const manifest = {
-    id: "community.apenasunshowt4oficial", 
-    version: "6.0.0",
-    name: "Apenas um Show - Links da T4",
-    description: "Injeta os episódios dublados da 4ª Temporada na página oficial da série do Stremio.",
-    resources: ["stream"], 
-    types: ["series"]
+    "id": "community.apenasunshowt4oficial", 
+    "version": "7.0.0",
+    "name": "Apenas um Show - Links da T4",
+    "description": "Injeta os episódios dublados da 4ª Temporada na página oficial da série do Stremio.",
+    "resources": ["stream"], 
+    "types": ["series"],
+    "catalogs": []
 };
 
 const builder = new addonBuilder(manifest);
