@@ -1,7 +1,7 @@
 const { addonBuilder } = require("stremio-addon-sdk");
 
 const manifest = {
-    id: "community.apenasunshowt4v2", // ID atualizado para limpar a memória antiga do Stremio
+    id: "community.apenasunshowt4v4", // ID atualizado para limpar a memória antiga do Stremio
     version: "1.1.0",
     name: "Apenas um Show - Temporada 4",
     description: "Episódios da 4ª Temporada dublados em Português (.mkv)",
