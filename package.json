@@ -1,4 +1,11 @@
 {
+  "name": "meu-addon-apenas-un-show",
+  "version": "1.0.0",
+  "description": "Addon Stremio",
+  "main": "addon.js",
+  "scripts": {
+    "start": "node addon.js"
+  {
   "dependencies": {
     "stremio-addon-sdk": "^1.6.10"
   }
