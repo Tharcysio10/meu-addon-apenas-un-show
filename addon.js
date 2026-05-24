@@ -2,7 +2,7 @@ const { addonBuilder } = require("stremio-addon-sdk");
 
 const manifest = {
     id: "community.apenasunshowt4oficial", 
-    version: "2.5.0",
+    version: "4.0.0",
     name: "Apenas um Show - Links da T4",
     description: "Injeta os episódios dublados da 4ª Temporada na página oficial da série do Stremio.",
     resources: ["stream"], 
@@ -69,31 +69,6 @@ builder.defineStreamHandler((args) => {
     return Promise.resolve({ streams: [] });
 });
 
-// Criando o servidor web nativo na porta 7000 para o Render ler corretamente
-const http = require("http");
-const server = http.createServer((req, res) => {
-    const interface = builder.getInterface();
-    if (req.url === "/manifest.json") {
-        res.writeHead(200, { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" });
-        res.end(JSON.stringify(interface.manifest));
-    } else if (req.url.startsWith("/stream/")) {
-        const pathParts = req.url.split("/");
-        const type = pathParts[2];
-        const id = pathParts[3].replace(".json", "");
-        
-        builder.getInterface().handlers.stream({ type, id }).then((result) => {
-            res.writeHead(200, { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" });
-            res.end(JSON.stringify(result));
-        }).catch(() => {
-            res.writeHead(500);
-            res.end();
-        });
-    } else {
-        res.writeHead(404);
-        res.end();
-    }
-});
-
-server.listen(7000, () => {
-    console.log("Addon rodando com sucesso na porta 7000!");
-});
+// O próprio SDK do Stremio cria o servidor na porta correta exigida pelo Render
+const { serveHTTP } = require("stremio-addon-sdk");
+serveHTTP(builder.getInterface(), { port: process.env.PORT || 7000 });
