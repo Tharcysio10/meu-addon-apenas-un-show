@@ -6,10 +6,10 @@ const manifest = {
     name: "Apenas um Show - Temporada 4",
     description: "Episódios da 4ª Temporada dublados em Português (.mkv)",
     resources: ["catalog", "stream"],
-    types: ["series"],
+    types: ["movie"], 
     catalogs: [
         {
-            type: "series",
+            type: "movie",
             id: "apenas_um_show_t4",
             name: "Apenas um Show - T4"
         }
@@ -24,7 +24,7 @@ builder.defineCatalogHandler((args) => {
             metas: [
                 {
                     id: "regular_show_t4_id",
-                    type: "series",
+                    type: "movie",
                     name: "Apenas um Show (Temporada 4)",
                     poster: "https://images.justwatch.com/poster/176342880/s718/regular-show.webm",
                     description: "Lista personalizada com os 37 episódios da 4ª temporada."
